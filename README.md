@@ -1,5 +1,4 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/okellomano/DevOps_Microservices/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/okellomano/DevOps_Microservices/tree/master)
-
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/okellomano/ml-microservice-udacity/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/okellomano/ml-microservice-udacity/tree/master)
 
 ## Project Overview
 
