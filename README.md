@@ -1,10 +1,21 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/okellomano/ml-microservice-udacity/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/okellomano/ml-microservice-udacity/tree/master)
 
+
 ## Project Overview
+This project involves deploying a machine learning model as a microservice API using Docker and Kubernetes.
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+We are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+The following steps were taken to operationalize the API:
+
+* Containerized the model using Docker and created a Dockerfile to define the API image.
+* Uploaded the API image to a container registry, such as Docker Hub.
+* Deployed the API to a Kubernetes cluster using a deployment YAML file.
+* Configured the Kubernetes service to expose the API to external clients.
+* Implemented logging to diagnose issues.
+* Defined an automated testing environment using CircleCI
+ 
+
 
 ### Project Tasks
 
@@ -17,7 +28,7 @@ Your project goal is to operationalize this working, machine learning microservi
 * Deploy a container using Kubernetes and make a prediction
 * Upload a complete Github repo with CircleCI to indicate that your code has been tested
 
-### DEscription of Files and Folders
+### A short explanation of the files in the repository
 
 * .circleci: For the CircleCI build server
 * model_data : this folder contains the pretrained sklearn model and housing csv files
