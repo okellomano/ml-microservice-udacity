@@ -89,5 +89,5 @@ source .devops/bin/activate
     * Run `./make_prediction.sh` to make prediction and copy/paste the logging info at terminal to `output_txt_files/kubernetes_out.txt`
     
 3. Create Flask app in Container
-    * Run ``./run_docker.sh` to build and start the Flask app container.
+    * Run `./run_docker.sh` to build and start the Flask app container.
     * Run `./upload_docker.sh` to upload the container to docker hub.
