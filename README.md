@@ -56,6 +56,8 @@ python3 -m virtualenv --python=<path-to-Python3.7> .devops
 source .devops/bin/activate
 ```
 * Run `make install` to install the necessary dependencies
+* Run `make lint` (pylint app.py files and hadolint Dockerfile) to detect errors in the code.
+* Alternatively, instead of running `make install` and `make lint` independently, you can simply run `make all` after activating the environment. This will install the necessary dependencies and detect errors in the code.
 
 ### Running `app.py`
 
@@ -65,7 +67,27 @@ source .devops/bin/activate
 
 ### Kubernetes Steps
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+1. Setup and Configure Docker locally
+    * First, install Docker. Refer `[here](https://docs.docker.com/engine/install/ubuntu/)` for different installattion methods.
+    * Run `./run_docker.sh`
+    * Run `docker ps` or `systemctl status docker.service` to check if the Docker service is running. If not, run `sudo systemctl start docker` to start it.
+    * Run `./make_prediction.sh` to make prediction and copy/paste the logging output at terminal to `output_txt_files/docker_out.txt`
+    
+2. Setup and Configure Kubernetes locally
+    * Install a hypervisor: First, you need to install a hypervisor like VirtualBox or VMware. You can install VirtualBox by running the following command: `sudo apt-get install virtualbox`
+    * Next, you need to install kubectl, which is the command line tool used to manage Kubernetes clusters. You can install kubectl by running the following command:
+        `sudo apt-get update && sudo apt-get install -y apt-transport-https`
+        `curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`
+        `echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list`
+        `sudo apt-get update`
+        `sudo apt-get install -y kubectl`
+    * Finally, you can install Minikube by running the following command: `curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb && sudo dpkg -i minikube_latest_amd64.deb`
+    * Once Minikube is installed, you can start it by running the following command: `minikube start`
+    * You can verify that everything is working correctly by running the following command: `kubectl version`
+    * Run `kubectl get pods` to see which pods are running
+    * Run `./run_kubernetes.sh`
+    * Run ``./make_prediction.sh` to make prediction and copy/paste the logging info at terminal to `output_txt_files/kubernetes_out.txt`
+    
+3. Create Flask app in Container
+    * Run ``./run_docker.sh` to build and start the Flask app container.
+    * Run `./upload_docker.sh` to upload the container to docker hub.
