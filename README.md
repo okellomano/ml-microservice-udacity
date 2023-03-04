@@ -86,7 +86,7 @@ source .devops/bin/activate
     * You can verify that everything is working correctly by running the following command: `kubectl version`
     * Run `kubectl get pods` to see which pods are running
     * Run `./run_kubernetes.sh`
-    * Run ``./make_prediction.sh` to make prediction and copy/paste the logging info at terminal to `output_txt_files/kubernetes_out.txt`
+    * Run `./make_prediction.sh` to make prediction and copy/paste the logging info at terminal to `output_txt_files/kubernetes_out.txt`
     
 3. Create Flask app in Container
     * Run ``./run_docker.sh` to build and start the Flask app container.
